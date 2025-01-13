@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ספירה לאחור לחתונה</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            background-image: url('wedding-photo.jpg'); /* כתובת התמונה שלך */
+            background-size: 30%; /* הגדלת התמונה כך שתתפוס יותר מקום */
+            background-position: center; /* מרכז את התמונה */
+            background-repeat: no-repeat; /* מונע חזרה של התמונה */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center; /* טקסט מיושר לימין */
+            direction: rtl; /* כיוון הטקסט לעברית */
+        }
+
+        .countdown-container {
+            padding: 40px;
+            border-radius: 20px;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .names {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .countdown-item {
+            margin: 0 15px;
+            font-size: 3rem;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .label {
+            display: block;
+            font-size: 1.2rem;
+            color: #ffffff;
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <div class="countdown-container">
+        <div class="names">
+            <p> בוני & ריקי</p>
+            <p> מ-ת-ח-ת-נ-י-ם</p>
+        </div>
+        <div class="footer">
+            <p>החתונה בעוד...</p>
+        </div>
+        <div id="countdown" class="countdown">
+
+            <div class="countdown-item">
+                <span id="days"></span>
+                <span class="label">ימים</span>
+            </div>
+            <div class="countdown-item">
+                <span id="hours"></span>
+                <span class="label">שעות</span>
+            </div>
+            <div class="countdown-item">
+                <span id="minutes"></span>
+                <span class="label">דקות</span>
+            </div>
+            <div class="countdown-item">
+                <span id="seconds"></span>
+                <span class="label">שניות</span>
+            </div>
+        </div>
+
+      
+    </div>
+
+    <script>
+        const weddingDate = new Date("2025-06-05T00:00:00");
+
+        function updateCountdown() {
+            const now = new Date();
+            const timeDifference = weddingDate - now;
+
+            const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+         
+            document.getElementById("seconds").textContent = seconds;
+            document.getElementById("minutes").textContent = minutes;
+            document.getElementById("hours").textContent = hours;
+            document.getElementById("days").textContent = days;
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); // Initial call to set the countdown immediately
+    </script>
+</body>
+</html>
