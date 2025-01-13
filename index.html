@@ -75,6 +75,21 @@
             direction: rtl; /* כיוון הטקסט לעברית */
 
         }
+
+        @media (max-width: 768px) {
+    body {
+        background-size: 110%; /* הגדלת התמונה כך שתתפוס יותר מקום */
+    }
+
+    .countdown-container {
+        padding: 20px; /* שינוי ריפוד עבור מסכים קטנים */
+        width: 100%; /* להקטין את רוחב המיכל כדי להתאים למסך */
+    }
+
+    .countdown-item {
+        font-size: 2rem; /* שינוי גודל טקסט במכשירים ניידים */
+    }
+}
     </style>
 </head>
 <body>
