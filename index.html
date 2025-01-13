@@ -23,7 +23,7 @@
             align-items: center;
             color: white;
             text-align: center; /* טקסט מיושר לימין */
-            direction: rtl; /* כיוון הטקסט לעברית */
+           
         }
 
         .countdown-container {
@@ -45,6 +45,7 @@
 
         .countdown {
             display: flex;
+            flex-direction: column-reverse; /* משנה את סדר התצוגה לנאגלי */
             justify-content: center;
             margin-top: 30px;
         }
@@ -80,26 +81,23 @@
             <p>החתונה בעוד...</p>
         </div>
         <div id="countdown" class="countdown">
-             <div class="countdown-item">
-                <span id="seconds"></span>
-                <span class="label">שניות</span>
-            </div>
-             <div class="countdown-item">
-                <span id="minutes"></span>
-                <span class="label">דקות</span>
-            </div>
-            <div class="countdown-item">
-                <span id="hours"></span>
-                <span class="label">שעות</span>
-            </div>
-            <div class="countdown-item">
-                <span id="days"></span>
-                <span class="label">ימים</span>
-            </div>
-            
-           
-           
-        </div>
+    <div class="countdown-item">
+        <span id="days"></span>
+        <span class="label">ימים</span>
+    </div>
+    <div class="countdown-item">
+        <span id="hours"></span>
+        <span class="label">שעות</span>
+    </div>
+    <div class="countdown-item">
+        <span id="minutes"></span>
+        <span class="label">דקות</span>
+    </div>
+    <div class="countdown-item">
+        <span id="seconds"></span>
+        <span class="label">שניות</span>
+    </div>
+</div>
 
       
     </div>
