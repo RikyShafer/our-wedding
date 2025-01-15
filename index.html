@@ -14,111 +14,102 @@
         body {
             font-family: Arial, sans-serif;
             height: 100vh;
-            background-image: url('wedding-photo.jpg'); /* כתובת התמונה שלך */
-            background-size: 30%; /* הגדלת התמונה כך שתתפוס יותר מקום */
-            background-position: center; /* מרכז את התמונה */
-            background-repeat: no-repeat; /* מונע חזרה של התמונה */
             display: flex;
             justify-content: center;
             align-items: center;
             color: white;
-            text-align: center; /* טקסט מיושר לימין */
-
-           
+            text-align: center;
+            background-color: #fffcfc;
         }
 
         .countdown-container {
-            padding: 40px;
-            border-radius: 20px;
+            position: relative;
             width: 80%;
             max-width: 600px;
         }
 
-        h1 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            direction: rtl; /* כיוון הטקסט לעברית */
+        .rounded-image {
+    width: 60%;
+    height: auto;
+    border-radius: 20px;
+}
 
+        .overlay-text {
+            position: absolute;
+            top: 33%;
+            width: 100%;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
-        .names {
+        .overlay-text p {
             font-size: 2rem;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
 
         .countdown {
+            position: absolute;
+            bottom: 20%;
+            left: 50%;
+            transform: translateX(-50%);
             display: flex;
-          
             justify-content: center;
-            margin-top: 30px;
         }
 
         .countdown-item {
-            margin: 0 15px;
-            font-size: 3rem;
+            margin: 0 10px;
+            font-size: 2rem;
             font-weight: bold;
-            color: #ffffff;
         }
 
         .label {
             display: block;
-            font-size: 1.2rem;
-            color: #ffffff;
-        }
-
-        .footer {
-            margin-top: 30px;
-            font-size: 3.5rem;
-            font-weight: bold;
-            color: #ffffff;
-            text-align: center; /* טקסט מיושר לימין */
-            direction: rtl; /* כיוון הטקסט לעברית */
-
+            font-size: 1rem;
         }
 
         @media (max-width: 768px) {
-    body {
-        background-size: 110%; /* הגדלת התמונה כך שתתפוס יותר מקום */
-    }
+            .rounded-background {
+                height: 300px;
+            }
 
-    .countdown-container {
-        padding: 20px; /* שינוי ריפוד עבור מסכים קטנים */
-        width: 100%; /* להקטין את רוחב המיכל כדי להתאים למסך */
-    }
+            .overlay-text p {
+                font-size: 1.5rem;
+            }
 
-    .countdown-item {
-        font-size: 2rem; /* שינוי גודל טקסט במכשירים ניידים */
-    }
-}
+            .countdown-item {
+                font-size: 1.5rem;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="countdown-container">
-        <div class="names">
-            <p> בוני & ריקי</p>
-            <p>  מ-ת-ח-ת-נ-י-ם בעוד</p>
-        </div>
-       
-        <div id="countdown" class="countdown">
-    <div class="countdown-item">
-        <span id="days"></span>
-        <span class="label">ימים</span>
-    </div>
-    <div class="countdown-item">
-        <span id="hours"></span>
-        <span class="label">שעות</span>
-    </div>
-    <div class="countdown-item">
-        <span id="minutes"></span>
-        <span class="label">דקות</span>
-    </div>
-    <div class="countdown-item">
-        <span id="seconds"></span>
-        <span class="label">שניות</span>
-    </div>
-</div>
+        <img src="wedding-photo.jpg" alt="תמונה" class="rounded-image">
+   
+                    <div class="overlay-text">
+                <p>בוני & ריקי</p>
+                <p>מ-ת-ח-ת-נ-י-ם </p>
+            </div>
 
-      
+            <div id="countdown" class="countdown">
+                <div class="countdown-item">
+                    <span id="days"></span>
+                    <span class="label">ימים</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="hours"></span>
+                    <span class="label">שעות</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="minutes"></span>
+                    <span class="label">דקות</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="seconds"></span>
+                    <span class="label">שניות</span>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -133,7 +124,6 @@
             const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
 
-         
             document.getElementById("seconds").textContent = seconds;
             document.getElementById("minutes").textContent = minutes;
             document.getElementById("hours").textContent = hours;
@@ -141,7 +131,7 @@
         }
 
         setInterval(updateCountdown, 1000);
-        updateCountdown(); // Initial call to set the countdown immediately
+        updateCountdown();
     </script>
 </body>
 </html>
